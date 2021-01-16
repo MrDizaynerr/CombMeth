@@ -8,7 +8,7 @@ from matplotlib.widgets import Slider
 a = int(input('a = '))
 b = int(input('b = '))
 x0 = [x1 for x1 in np.arange(a, b, (b-a)/100)]
-y = [math.tan(i) for i in x0]
+y = [math.log2(i) for i in x0]
 
 y0 = [i + r.uniform(-(max(y)-min(y)), (max(y)-min(y))) for i in y]
 
@@ -52,10 +52,10 @@ p3 = mat.plot(x0, y0)[0]
 mat.axis([a-(b-a)/4, b+(b-a)/4, min(y0) - max(y0)/4, max(y0) + max(y0)/4])
 
 axSliderK = mat.axes([0.1, 0.2, 0.8, 0.05])
-slderk = Slider(axSliderK, 'K-value', valmin=2, valmax=len(x0), valstep=1, valinit=6)
+slderk = Slider(axSliderK, 'K-value (size)', valmin=2, valmax=len(x0), valstep=1, valinit=6)
 
 axSliderN = mat.axes([0.1, 0.1, 0.8, 0.05])
-sldern = Slider(axSliderN, 'N-value', valmin=1, valmax=len(x0), valstep=1, valinit=4)
+sldern = Slider(axSliderN, 'N-value (step)', valmin=1, valmax=len(x0), valstep=1, valinit=4)
 
 
 def update_data(val):
