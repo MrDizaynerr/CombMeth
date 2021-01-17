@@ -8,7 +8,7 @@ from matplotlib.widgets import Slider
 a = int(input('a = '))
 b = int(input('b = '))
 x0 = [x1 for x1 in np.arange(a, b, (b-a)/100)]
-y = [math.log2(i) for i in x0]
+y = [math.sin(i) for i in x0]
 
 y0 = [i + r.uniform(-(max(y)-min(y)), (max(y)-min(y))) for i in y]
 
@@ -65,7 +65,7 @@ def update_data(val):
     p2.set_xdata(x1)
     p2.set_ydata(y1)
 
-    x3 = np.arange(x0[0]-x0[-1]//5, x0[-1]+x0[-1]//5, 0.1)
+    x3 = np.arange(a-(b-a)/4, b+(b-a)/4, 0.1)
     y3 = inter.lagranzh(x3, x1, y1)
     p3.set_xdata(x3)
     p3.set_ydata(y3)
